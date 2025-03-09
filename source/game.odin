@@ -65,7 +65,7 @@ init :: proc() {
    run = true
 
    rl.SetConfigFlags({.WINDOW_RESIZABLE})
-   rl.InitWindow(800, 600, "u,u")
+   rl.InitWindow(800, 600, "Cool Image.glsl")
 
    shader = rl.LoadShader(nil, "assets/shaders/shader.fs")
    WINDOW_SIZE_LOC = rl.GetShaderLocation(shader, "window_size")
@@ -87,7 +87,6 @@ update :: proc() {
       rl.BeginMode2D(rl.Camera2D{offset = {0, 0}, target = {0, 0}, zoom = 1, rotation = 0})
          rl.BeginShaderMode(shader)
             rl.DrawTexturePro(render_texture.texture, {0, 0, 1, 1}, {0, 0, window_size.x, window_size.y}, {0, 0}, 0, rl.WHITE)
-            //rl.DrawTexture(0, 0, cast(i32)window_size.x, cast(i32)window_size.y, rl.WHITE)
          rl.EndShaderMode()
       rl.EndMode2D()
    rl.EndDrawing()
