@@ -10,9 +10,6 @@ uniform vec4 colDiffuse;
 uniform vec2 window_size;
 uniform float time;
 
-uniform vec3 background_color;
-uniform vec3 rect_colors[2];
-
 out vec4 finalColor;
 
 //////////////// K.jpg's Re-oriented 4-Point BCC Noise (OpenSimplex2) ////////////////
@@ -91,7 +88,8 @@ vec4 openSimplex2Base(vec3 X) {
     vec3 derivative = -8.0 * w + v;
     
     // Return it all as a vec4
-    return vec4(derivative, dot(aaaa, extrapolations));
+    // return vec4(derivative, dot(aaaa, extrapolations));
+    return vec4(vec3(0.0f), dot(aaaa, extrapolations));
 }
 
 // Use this if you don't want Z to look different from X and Y
